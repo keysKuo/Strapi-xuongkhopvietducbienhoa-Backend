@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "form_tu_vans",
+  "info": {
+    "singularName": "form-tu-van",
+    "pluralName": "form-tu-vans",
+    "displayName": "Form Tư Vấn"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "fullname": {
+      "type": "string",
+      "required": true
+    },
+    "phone": {
+      "type": "string",
+      "required": true,
+      "maxLength": 10,
+      "minLength": 10
+    },
+    "content": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

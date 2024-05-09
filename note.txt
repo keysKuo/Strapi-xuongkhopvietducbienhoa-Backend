@@ -1,5 +1,6 @@
 Schema, queue doing it
-- Bác sĩ
-- Bài viết
-- chuyên mục
-- Phản hồi khách hàng
+- Bác sĩ x
+- Bài viết x
+- Chuyên mục (đầu mục) x
+- Phản hồi khách hàng x
+- Form đăng ký tư vấn
