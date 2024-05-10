@@ -13,7 +13,8 @@
   "pluginOptions": {},
   "attributes": {
     "fullname": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "rating": {
       "type": "integer",
@@ -27,6 +28,16 @@
     "slug": {
       "type": "uid",
       "targetField": "fullname"
+    },
+    "avatar": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }
