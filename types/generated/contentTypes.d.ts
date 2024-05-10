@@ -839,7 +839,7 @@ export interface ApiFeedbackFeedback extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    fullname: Attribute.String;
+    fullname: Attribute.String & Attribute.Required;
     rating: Attribute.Integer &
       Attribute.SetMinMax<
         {
@@ -851,6 +851,7 @@ export interface ApiFeedbackFeedback extends Schema.CollectionType {
       Attribute.DefaultTo<5>;
     comment: Attribute.Text;
     slug: Attribute.UID<'api::feedback.feedback', 'fullname'>;
+    avatar: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -927,9 +928,9 @@ export interface ApiPostPost extends Schema.CollectionType {
         }
       >;
     slug: Attribute.UID<'api::post.post', 'title'> & Attribute.Required;
-    post_category: Attribute.Relation<
+    post_categories: Attribute.Relation<
       'api::post.post',
-      'oneToOne',
+      'oneToMany',
       'api::post-category.post-category'
     >;
     createdAt: Attribute.DateTime;
