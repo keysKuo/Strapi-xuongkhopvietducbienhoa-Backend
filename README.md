@@ -58,5 +58,10 @@ Feel free to check out the [Strapi GitHub repository](https://github.com/strapi/
 
 ---
 
+## Extra:
+
 Remember to add .env file
 
+Remember to add temp/db dir
+
+Remember to add public uploads folder
