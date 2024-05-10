@@ -28,9 +28,9 @@
       "targetField": "title",
       "required": true
     },
-    "post_category": {
+    "post_categories": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "oneToMany",
       "target": "api::post-category.post-category"
     }
   }
