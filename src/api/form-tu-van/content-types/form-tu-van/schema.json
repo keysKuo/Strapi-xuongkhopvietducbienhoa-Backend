@@ -4,7 +4,8 @@
   "info": {
     "singularName": "form-tu-van",
     "pluralName": "form-tu-vans",
-    "displayName": "Form Tư Vấn"
+    "displayName": "Form Tư Vấn",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -19,7 +20,8 @@
       "type": "string",
       "required": true,
       "maxLength": 10,
-      "minLength": 10
+      "minLength": 10,
+      "regex": "^0[0-9]{9}$"
     },
     "content": {
       "type": "text",

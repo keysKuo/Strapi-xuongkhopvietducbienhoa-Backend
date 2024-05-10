@@ -876,6 +876,7 @@ export interface ApiFormTuVanFormTuVan extends Schema.CollectionType {
     singularName: 'form-tu-van';
     pluralName: 'form-tu-vans';
     displayName: 'Form T\u01B0 V\u1EA5n';
+    description: '';
   };
   options: {
     draftAndPublish: true;
