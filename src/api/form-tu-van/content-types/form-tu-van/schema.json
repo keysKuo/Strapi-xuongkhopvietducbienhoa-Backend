@@ -25,7 +25,8 @@
     },
     "content": {
       "type": "text",
-      "required": true
+      "required": true,
+      "minLength": 10
     }
   }
 }

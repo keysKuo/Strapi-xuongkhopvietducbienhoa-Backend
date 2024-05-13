@@ -922,7 +922,11 @@ export interface ApiFormTuVanFormTuVan extends Schema.CollectionType {
         minLength: 10;
         maxLength: 10;
       }>;
-    content: Attribute.Text & Attribute.Required;
+    content: Attribute.Text &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        minLength: 10;
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -995,6 +999,7 @@ export interface ApiPostCategoryPostCategory extends Schema.CollectionType {
     slug: Attribute.UID<'api::post-category.post-category', 'category_name'> &
       Attribute.Required;
     description: Attribute.Text;
+    icon: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
