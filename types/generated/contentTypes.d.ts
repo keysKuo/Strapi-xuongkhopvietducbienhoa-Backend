@@ -884,6 +884,7 @@ export interface ApiFeedbackFeedback extends Schema.CollectionType {
     comment: Attribute.Text;
     slug: Attribute.UID<'api::feedback.feedback', 'fullname'>;
     avatar: Attribute.Media;
+    seo: Attribute.Component<'shared.seo'> & Attribute.Private;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -967,6 +968,7 @@ export interface ApiPostPost extends Schema.CollectionType {
       'api::post-category.post-category'
     >;
     thumbnail: Attribute.Media;
+    seo: Attribute.Component<'shared.seo'> & Attribute.Private;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1056,6 +1058,7 @@ export interface ApiTrangChuTrangChu extends Schema.CollectionType {
     singularName: 'trang-chu';
     pluralName: 'home';
     displayName: 'Trang Ch\u1EE7';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1078,6 +1081,7 @@ export interface ApiTrangChuTrangChu extends Schema.CollectionType {
       'oneToMany',
       'api::feedback.feedback'
     >;
+    seo: Attribute.Component<'shared.seo'> & Attribute.Private;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

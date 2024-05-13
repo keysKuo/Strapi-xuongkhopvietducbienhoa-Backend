@@ -34,14 +34,21 @@
       "target": "api::post-category.post-category"
     },
     "thumbnail": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "private": true,
+      "component": "shared.seo"
     }
   }
 }
