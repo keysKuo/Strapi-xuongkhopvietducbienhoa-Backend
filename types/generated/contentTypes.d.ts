@@ -788,6 +788,38 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiBannerBanner extends Schema.CollectionType {
+  collectionName: 'banners';
+  info: {
+    singularName: 'banner';
+    pluralName: 'banners';
+    displayName: 'Banner';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    image: Attribute.Media & Attribute.Required;
+    link: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::banner.banner',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::banner.banner',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiDoctorDoctor extends Schema.CollectionType {
   collectionName: 'doctors';
   info: {
@@ -934,6 +966,7 @@ export interface ApiPostPost extends Schema.CollectionType {
       'oneToMany',
       'api::post-category.post-category'
     >;
+    thumbnail: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1017,6 +1050,52 @@ export interface ApiProductProduct extends Schema.CollectionType {
   };
 }
 
+export interface ApiTrangChuTrangChu extends Schema.CollectionType {
+  collectionName: 'home';
+  info: {
+    singularName: 'trang-chu';
+    pluralName: 'home';
+    displayName: 'Trang Ch\u1EE7';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    link: Attribute.String;
+    banners: Attribute.Relation<
+      'api::trang-chu.trang-chu',
+      'oneToMany',
+      'api::banner.banner'
+    >;
+    posts: Attribute.Relation<
+      'api::trang-chu.trang-chu',
+      'oneToMany',
+      'api::post.post'
+    >;
+    feedbacks: Attribute.Relation<
+      'api::trang-chu.trang-chu',
+      'oneToMany',
+      'api::feedback.feedback'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::trang-chu.trang-chu',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::trang-chu.trang-chu',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1035,12 +1114,14 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::banner.banner': ApiBannerBanner;
       'api::doctor.doctor': ApiDoctorDoctor;
       'api::feedback.feedback': ApiFeedbackFeedback;
       'api::form-tu-van.form-tu-van': ApiFormTuVanFormTuVan;
       'api::post.post': ApiPostPost;
       'api::post-category.post-category': ApiPostCategoryPostCategory;
       'api::product.product': ApiProductProduct;
+      'api::trang-chu.trang-chu': ApiTrangChuTrangChu;
     }
   }
 }

@@ -32,6 +32,16 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::post-category.post-category"
+    },
+    "thumbnail": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }
