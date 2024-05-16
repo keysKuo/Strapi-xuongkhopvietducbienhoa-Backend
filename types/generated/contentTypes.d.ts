@@ -820,6 +820,44 @@ export interface ApiBannerBanner extends Schema.CollectionType {
   };
 }
 
+export interface ApiCommonPostCommonPost extends Schema.CollectionType {
+  collectionName: 'common_posts';
+  info: {
+    singularName: 'common-post';
+    pluralName: 'common-posts';
+    displayName: 'Common Post';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    content: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
+    seo: Attribute.Component<'shared.seo'> & Attribute.Private;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::common-post.common-post',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::common-post.common-post',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiDoctorDoctor extends Schema.CollectionType {
   collectionName: 'doctors';
   info: {
@@ -1105,6 +1143,44 @@ export interface ApiTrangChuTrangChu extends Schema.CollectionType {
   };
 }
 
+export interface ApiTrangDieuHuongTrangDieuHuong extends Schema.CollectionType {
+  collectionName: 'trang_dieu_huongs';
+  info: {
+    singularName: 'trang-dieu-huong';
+    pluralName: 'trang-dieu-huongs';
+    displayName: 'Trang \u0110i\u1EC1u H\u01B0\u1EDBng';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    link: Attribute.String;
+    common_post: Attribute.Relation<
+      'api::trang-dieu-huong.trang-dieu-huong',
+      'oneToOne',
+      'api::common-post.common-post'
+    >;
+    seo: Attribute.Component<'shared.seo'> & Attribute.Private;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::trang-dieu-huong.trang-dieu-huong',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::trang-dieu-huong.trang-dieu-huong',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1124,6 +1200,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::banner.banner': ApiBannerBanner;
+      'api::common-post.common-post': ApiCommonPostCommonPost;
       'api::doctor.doctor': ApiDoctorDoctor;
       'api::feedback.feedback': ApiFeedbackFeedback;
       'api::form-tu-van.form-tu-van': ApiFormTuVanFormTuVan;
@@ -1131,6 +1208,7 @@ declare module '@strapi/types' {
       'api::post-category.post-category': ApiPostCategoryPostCategory;
       'api::product.product': ApiProductProduct;
       'api::trang-chu.trang-chu': ApiTrangChuTrangChu;
+      'api::trang-dieu-huong.trang-dieu-huong': ApiTrangDieuHuongTrangDieuHuong;
     }
   }
 }
