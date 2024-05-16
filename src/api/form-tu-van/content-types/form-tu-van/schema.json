@@ -14,7 +14,8 @@
   "attributes": {
     "fullname": {
       "type": "string",
-      "required": true
+      "required": true,
+      "regex": "^\\w+\\s+\\w+"
     },
     "phone": {
       "type": "string",
@@ -26,6 +27,7 @@
     "content": {
       "type": "text",
       "required": true,
+      "regex": "^\\w+\\s+\\w+",
       "minLength": 10
     }
   }
