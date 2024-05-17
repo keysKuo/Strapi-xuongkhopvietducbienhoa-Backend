@@ -1,4 +1,10 @@
 const config = {
+  head: {
+    favicon: {
+      path: 'favicon.png',
+      type: 'image/png',
+    },
+  },
   locales: [
     // 'ar',
     // 'fr',
@@ -23,7 +29,7 @@ const config = {
     // 'th',
     // 'tr',
     // 'uk',
-    // 'vi',
+    'vi',
     // 'zh-Hans',
     // 'zh',
   ],
