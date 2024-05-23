@@ -820,6 +820,44 @@ export interface ApiBannerBanner extends Schema.CollectionType {
   };
 }
 
+export interface ApiBoxKhuyenMaiBoxKhuyenMai extends Schema.CollectionType {
+  collectionName: 'box_khuyen_mais';
+  info: {
+    singularName: 'box-khuyen-mai';
+    pluralName: 'box-khuyen-mais';
+    displayName: 'Box Khuy\u1EBFn M\u00E3i';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
+    name: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::box-khuyen-mai.box-khuyen-mai',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::box-khuyen-mai.box-khuyen-mai',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiCommonPostCommonPost extends Schema.CollectionType {
   collectionName: 'common_posts';
   info: {
@@ -1200,6 +1238,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::banner.banner': ApiBannerBanner;
+      'api::box-khuyen-mai.box-khuyen-mai': ApiBoxKhuyenMaiBoxKhuyenMai;
       'api::common-post.common-post': ApiCommonPostCommonPost;
       'api::doctor.doctor': ApiDoctorDoctor;
       'api::feedback.feedback': ApiFeedbackFeedback;
