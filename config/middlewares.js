@@ -7,11 +7,12 @@ module.exports = [
     config: {
       enabled: true,
       headers: "*",
-      origin: [
+      origin: "*",
+	/* [
         "https://xuongkhopvietducbienhoa.com",
         "https://xuongkhopbienhoa.com",
         "https://vietducbienhoa.com",
-      ], // Thay thế với các domain của bạn
+      ], */
     },
   },
   "strapi::poweredBy",
